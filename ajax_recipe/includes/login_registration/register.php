@@ -86,12 +86,10 @@ if ($action == 'back') {
     <title>Registration</title>
 </head>
 <body>
-<header>
-        <h3>Register Your Account</h3>
-</header>
 <main>
     <div class="container">
     <form action="register.php" method="POST">
+        <h3>Register Your Account</h3><br>
         <h4>Welcome! Please enter your email, username and password!</h4><br>
 
         <label>Email:</label>
@@ -110,12 +108,12 @@ if ($action == 'back') {
 
         <div id="button">
             <label>&nbsp;</label>
-            <input type="submit" value="register" name="action" class="btn btn-primary"><br>
+            <input type="submit" value="Register" name="action" class="btn btn-primary"><br>
         </div>
 
         <div id="button">
             <label>&nbsp;</label>
-            <input type="submit" value="back" name="action" class="btn btn-primary">
+            <input type="submit" value="Back" name="action" class="btn btn-primary">
         </div>
     </form>
     </div>
