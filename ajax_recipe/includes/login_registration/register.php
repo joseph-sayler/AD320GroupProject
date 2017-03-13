@@ -15,7 +15,7 @@ $registerSuccess = false;
 $message = '';
 
 // Retrieve Values for Variables
-$email = filter_input(INPUT_POST, 'email_submit');
+$email = filter_input(INPUT_POST, 'email_submit', FILTER_VALIDATE_EMAIL);
 $userNameSubmit = filter_input(INPUT_POST, 'username_submit');
 $passwordSubmit = filter_input(INPUT_POST, 'password_submit');
 $passwordConfirm = filter_input(INPUT_POST, 'password_confirm');
