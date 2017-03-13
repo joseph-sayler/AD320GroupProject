@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<?php include 'navBar.php'; ?>
 
 <?php
 
@@ -86,48 +87,38 @@ if ($action == 'back') {
 </head>
 <body>
 <header>
-    <h1>Register Your Account</h1>
+        <h3>Register Your Account</h3>
 </header>
 <main>
+    <div class="container">
     <form action="register.php" method="POST">
-        <h5>Welcome! Please enter your email, username and password!</h5><br>
-        <table>
-            <tr>
-                <td align="right">Email:</td>
-                <td align="left"><input type="email" name="email_submit"
-                                        value="<?php echo $email; ?>"/></td>
-            </tr>
-            <tr>
-                <td align="right">Username:</td>
-                <td align="left"><input type="text" name="username_submit"
-                                        value="<?php echo $userNameSubmit; ?>"/></td>
-            </tr>
-            <tr>
-                <td align="right">Password:</td>
-                <td align="left"><input type="password" name="password_submit"></td>
-            </tr>
-            <tr>
-                <td align="right">Confirm Password:</td>
-                <td align="left"><input type="password" name="password_confirm"</td>
-            </tr>
-            <tr>
-                <td align="left">
-                    <div id="button">
-                        <label>&nbsp;</label>
-                        <input type="submit" value="register" name="action">
-                </td>
-                </div>
-            </tr>
-            <tr>
-                <td align="left">
-                    <div id="button">
-                        <label>&nbsp;</label>
-                        <input type="submit" value="back" name="action">
-                </td>
-                </div>
-            </tr>
-        </table>
+        <h4>Welcome! Please enter your email, username and password!</h4><br>
+
+        <label>Email:</label>
+        <input type="email" name="email_submit" class="form-control"
+               value="<?php echo $email; ?>"/><br>
+
+        <label>Username:</label>
+        <input type="text" name="username_submit" class="form-control"
+               value="<?php echo $userNameSubmit; ?>"/><br>
+
+        <label>Password:</label>
+        <input type="password" name="password_submit" class="form-control"/><br>
+
+        <label>Confirm Password:</label>
+        <input type="password" name="password_confirm" class="form-control"/><br>
+
+        <div id="button">
+            <label>&nbsp;</label>
+            <input type="submit" value="register" name="action" class="btn btn-primary"><br>
+        </div>
+
+        <div id="button">
+            <label>&nbsp;</label>
+            <input type="submit" value="back" name="action" class="btn btn-primary">
+        </div>
     </form>
+    </div>
     <p><?php echo nl2br(htmlspecialchars($message)); ?></p>
 </main>
 </body>
