@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<?php include 'navBarlogOff.php'; ?>
 
 <?php
 
@@ -16,13 +17,7 @@ if(!isset($_COOKIE["loginForm1"])) {
     }
 }
 
-if ($action == 'logoff') {
-    // clears cookies
-    setcookie("loginForm1", '', time() - (300), "/");
-    setcookie("password", '', time() - (300), "/");
-    // unsets session
-    session_unset();
-    session_destroy();
+if ($action == 'back') {
     header('location: index.php');
     exit();
 }
@@ -39,6 +34,7 @@ if ($action == 'logoff') {
     <h1>Database Login</h1>
 </header>
 <main>
+    <div class="container">
     <form action="success.php" method="POST">
         <div id="success">
             You have logged in successfully!<br><br>
@@ -46,9 +42,10 @@ if ($action == 'logoff') {
 
         <div id="button">
             <label>&nbsp;</label>
-            <input type="submit" value="logoff" name="action"><br>
+            <input type="submit" value="back" name="action" class="btn btn-primary"><br>
         </div>
     </form>
+    </div>
 </main>
 </body>
 </html>

@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<?php include 'navBarlogOff.php'; ?>
 
 <?php
 /**
@@ -31,16 +32,19 @@ if ($action == 'back') {
 </head>
 <body>
 <header>
-    <h1>Success!</h1>
+
 </header>
 <main>
-    <form action="register.php" method="POST">
-    <h5>You have successfully registered!</h5>
+    <div class="container">
+        <form action="register.php" method="POST">
+            <h1>Success!</h1>
+            <h5>You have successfully registered!</h5>
 
-    Press the button to go back to the login screen.
-    <div id="button">
-        <label>&nbsp;</label>
-        <input type="submit" value="back" name="action"><br>
+            Press the button to go back to the login screen.
+            <div id="button">
+                <label>&nbsp;</label>
+                <input type="submit" value="back" name="action" class="btn btn-primary"><br>
+            </div>
+        </form>
     </div>
-    </form>
 </main>

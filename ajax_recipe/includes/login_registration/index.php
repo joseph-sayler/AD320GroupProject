@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<?php include 'navBarLogOn.php'; ?>
 
 <?php
 /**
@@ -115,43 +116,3 @@ if ($loginSuccess) {
     exit();
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login to Database</title>
-</head>
-<body>
-<header>
-    <h1>Database Login</h1>
-</header>
-<main>
-    <form action="index.php" method="POST">
-        <div id="login">
-            <label>User Name:</label>
-            <input type="text" name="user_name"
-            value="<?php echo $userName;?>"><br><br>
-
-            <label>Password:</label>
-            <input type="password" name="password"><br><br>
-
-            <input type="checkbox" name="remember">
-            <label>Remember me!</label><br><br>
-        </div>
-
-        <div id="button">
-            <label>&nbsp;</label>
-            <input type="submit" value="login" name="action"><br><br>
-        </div>
-
-        <div id="button">
-            <label>&nbsp;</label>
-            <input type="submit" value="register" name="action"><br>
-        </div>
-    </form>
-    <p><?php echo nl2br(htmlspecialchars($message)); ?></p>
-
-</main>
-</body>
-</html>
