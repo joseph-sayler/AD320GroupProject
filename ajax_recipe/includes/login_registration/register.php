@@ -108,7 +108,7 @@ if ($action == 'back') {
 
             <div id="button">
                 <label>&nbsp;</label>
-                <input type="submit" value="Register" name="action" class="btn btn-primary"><br>
+                <input type="submit" value="register" name="action" class="btn btn-primary"><br>
             </div>
 
             <div id="button">

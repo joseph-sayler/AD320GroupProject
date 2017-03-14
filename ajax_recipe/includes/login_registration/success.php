@@ -30,15 +30,12 @@ if ($action == 'back') {
     <title>Login to Database</title>
 </head>
 <body>
-<header>
-    <h1>Database Login</h1>
-</header>
 <main>
     <div class="container">
     <form action="success.php" method="POST">
-        <div id="success">
-            You have logged in successfully!<br><br>
-        </div>
+        <h1>Database Login</h1>
+            <h4>Congratulations, you have logged in successfully!</h4><br><br>
+
 
         <div id="button">
             <label>&nbsp;</label>
