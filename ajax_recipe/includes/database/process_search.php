@@ -18,16 +18,14 @@ foreach ($_POST as $key => $value) {
 
 
 if(is_ajax_request()){
-
-
-foreach ($input_array as $ingredient) {
-  $result = RecipesDB::getRecipesByIngredients($ingredient);
+	foreach ($input_array as $ingredient) {
+		$result = RecipesDB::getRecipesByIngredients($ingredient);
+	}
+	foreach ($result as $key) {
+	   echo $key."\n";
+	}
 }
 // $recipes = array();
-
-foreach ($result as $key) {
-   echo $key."\n";
-}
 
 
 
@@ -47,7 +45,7 @@ foreach ($result as $key) {
 // }
 // echo $recipes[$count];
 
-} 
+
 
 
 
