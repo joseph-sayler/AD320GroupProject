@@ -46,9 +46,9 @@ if ($action == 'register') {
         // Checks for duplicate name
         try {
             $dbstmt = "
-                   SELECT userName
+                  SELECT userName
                    FROM user_DB
-                   WHERE userName= '$userName'
+                   WHERE userName='$userName'
                   ";
             $result = $conn->prepare($dbstmt);
             $result->execute();
@@ -61,7 +61,7 @@ if ($action == 'register') {
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         } finally {
-            $conn = null;
+            //$conn = null;
         }
 
         // Checks for duplicate email
@@ -82,7 +82,7 @@ if ($action == 'register') {
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         } finally {
-            $conn = null;
+            //$conn = null;
         }
 
         if ($userNameCheck && $emailCheck) {
@@ -98,7 +98,7 @@ if ($action == 'register') {
             if (password_verify($passwordSubmit, $hashPass)) {
                 //Insert user data into database
                 try {
-                    $sql_insert = "INSERT INTO user_DB (userName, password, email) 
+                    $sql_insert = "INSERT INTO user_DB (userName, password, email)
                            VALUES ('$userNameSubmit', '$hashPass', '$email');";
                     $conn->exec($sql_insert);
                     $registerSuccess = true;
