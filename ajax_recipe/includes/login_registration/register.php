@@ -13,6 +13,8 @@ $passwordSubmit = '';
 $passwordConfirm = '';
 $registerSuccess = false;
 $message = '';
+$userNameCheck = false;
+$emailCheck = false;
 
 // Retrieve Values for Variables
 $email = filter_input(INPUT_POST, 'email_submit', FILTER_VALIDATE_EMAIL);
@@ -41,28 +43,74 @@ if ($action == 'register') {
         $message = 'Your passwords do not match.';
     } else if (!empty($email) && !empty($userNameSubmit) && !empty($passwordSubmit)) {
 
-        /*
-         * Checks are good, Hash password & insert into createUserDB
-         */
+        // Checks for duplicate name
+        try {
+            $dbstmt = "
+                   SELECT userName
+                   FROM user_DB
+                   WHERE userName= '$userName'
+                  ";
+            $result = $conn->prepare($dbstmt);
+            $result->execute();
+            $count = $result->rowCount();
 
-        //Salt & Hash Password
-        $hashPass = password_hash($passwordSubmit, PASSWORD_DEFAULT);
-
-
-        //Check if hash & password match
-        if (password_verify($passwordSubmit, $hashPass)) {
-            //Insert user data into database
-            try {
-                $sql_insert = "INSERT INTO user_DB (userName, password, email) 
-                           VALUES ('$userNameSubmit', '$hashPass', '$email');";
-                $conn->exec($sql_insert);
-                $registerSuccess = true;
-                $_SESSION['user'] = $userNameSubmit;
-            } catch (PDOException $e) {
-                echo $sql_insert . "<br>" . $e->getMessage();
-            } finally {
-                $conn = null;
+            // Should have only 1 row that matches the conditions
+            if ($count == 0) {
+                $userNameCheck = true;
             }
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        } finally {
+            $conn = null;
+        }
+
+        // Checks for duplicate email
+        try {
+            $dbstmt = "
+                   SELECT email
+                   FROM user_DB
+                   WHERE email= '$email'
+                  ";
+            $result = $conn->prepare($dbstmt);
+            $result->execute();
+            $count = $result->rowCount();
+
+            // Should have only 1 row that matches the conditions
+            if ($count == 0) {
+                $emailCheck = true;
+            }
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        } finally {
+            $conn = null;
+        }
+
+        if ($userNameCheck && $emailCheck) {
+
+            /*
+             * Checks are good, Hash password & insert into createUserDB
+             */
+
+            //Salt & Hash Password
+            $hashPass = password_hash($passwordSubmit, PASSWORD_DEFAULT);
+
+            //Check if hash & password match
+            if (password_verify($passwordSubmit, $hashPass)) {
+                //Insert user data into database
+                try {
+                    $sql_insert = "INSERT INTO user_DB (userName, password, email) 
+                           VALUES ('$userNameSubmit', '$hashPass', '$email');";
+                    $conn->exec($sql_insert);
+                    $registerSuccess = true;
+                    $_SESSION['user'] = $userNameSubmit;
+                } catch (PDOException $e) {
+                    echo $sql_insert . "<br>" . $e->getMessage();
+                } finally {
+                    $conn = null;
+                }
+            }
+        } else {
+            $message = 'There is already a username or email being used.';
         }
     }
 }
