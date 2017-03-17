@@ -110,7 +110,12 @@ if ($loginSuccess) {
     header("location: includes/login_registration/success.php");
     exit();
 }
-include 'includes/login_registration/navBarLogOn.php';
+if(!isset($_SESSION['user'])) {
+  include 'includes/login_registration/navBarLogOn.php';
+} else {
+  include 'includes/login_registration/navBarlogOff.php';
+}
+
 //Everything on this page will be initially diaplayed when site loads
 
 // display header
