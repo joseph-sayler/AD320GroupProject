@@ -106,6 +106,9 @@ if ($action == 'register') {
     exit();
 }
 
+//Everything from here on down will be initially diaplayed when site loads
+
+// checks if session loaded and displays the appropriate navBar
 if ($loginSuccess) {
     header("location: includes/login_registration/success.php");
     exit();
@@ -115,8 +118,6 @@ if(!isset($_SESSION['user'])) {
 } else {
   include 'includes/login_registration/navBarlogOff.php';
 }
-
-//Everything on this page will be initially diaplayed when site loads
 
 // display header
 include('views/header.php');
@@ -128,6 +129,4 @@ include('views/search_results.php');
 
 // display footer
 include('views/footer.php');
-
-
 ?>

@@ -35,7 +35,7 @@
                 <input type ="password" class="form-control" name="password" placeholder="Password">
             </div>
             <button type="submit" class="btn btn-primary" value="login" name="action">Submit</button>
-            <a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+            <a href="includes/login_registration/register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
         </form>
     </div>
 </nav>
