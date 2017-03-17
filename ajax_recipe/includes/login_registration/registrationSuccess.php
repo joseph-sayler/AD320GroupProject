@@ -12,16 +12,17 @@
 $action = filter_input(INPUT_POST, 'action');
 
 if (!isset($_SESSION['user'])) {
-    header('location: index.php');
+    header('location: ../../index.php');
     exit();
 }
 
 if ($action == 'back') {
     session_unset();
     session_destroy();
-    header("location: index.php");
+    header("location: ../../index.php");
     exit();
 }
+
 ?>
 
 <!DOCTYPE html>
