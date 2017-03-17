@@ -23,6 +23,26 @@ class RecipesDB {
             return $json;
 	}
 
+	public static function getRecipesByTitle($title){
+		$db = Database::getDB();
+		$i = "%$title%";
+		$query = "SELECT a.recipeID, a.image, a.title, a.servings, a.prepTime, a.cookTime, a.instructions FROM recipe_data a WHERE a.title LIKE :i";
+             $statement = $db->prepare($query);
+            $statement->bindValue(':i', $i);
+            $statement->execute();
+            $json = array();
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+		while($result != null ){
+			$j = json_encode($result);
+			if (!empty($j)) {
+				array_push($json, $j);
+			}
+			$result = $statement->fetch(PDO::FETCH_ASSOC);
+		}
+            $statement->closeCursor();
+            return $json;
+	}
+
 	public static function getRecipeIngredients($recipe_id){
 		$db = Database::getDB();
 		$query = "SELECT ia.ingredient_quantities, ia.ingredient_name FROM Ingredients ia WHERE ia.recipe_id = :id";
