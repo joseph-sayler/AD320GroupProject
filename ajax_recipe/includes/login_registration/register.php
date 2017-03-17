@@ -1,11 +1,8 @@
-<?php session_start(); ?>
-<?php include 'navBarLogOn.php'; ?>
-
 <?php
 
 // Includes connection to SQL Database
 require '../database/database.php';
-
+include 'navBarLogOn.php';
 // Set Variables
 $email = '';
 $userNameSubmit = '';

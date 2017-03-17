@@ -1,13 +1,4 @@
-<?php //session_start(); ?>
-<?php include 'logoff.php'; ?>
-
-<?php
-/**
- * Created by PhpStorm.
- * User: jamesno
- * Date: 3/12/17
- * Time: 4:25 PM
- */
+<?php include 'logoff.php';
 
 $userName = $_SESSION['user'];
 
@@ -40,10 +31,10 @@ $userName = $_SESSION['user'];
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="index.php">Gotta Eat</a>
+            <a class="navbar-brand" href="<?php realpath("/index.php") ?>">Gotta Eat</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Home</a></li>
+            <li class="active"><a href="<?php realpath("/index.php") ?>">Home</a></li>
         </ul>
         <form class="navbar-form navbar-right" method="POST">
             <?php echo "Welcome " . $userName . " " ?>

@@ -1,12 +1,4 @@
-<?php //session_start(); ?>
-
-<?php
-/**
- * Created by PhpStorm.
- * User: jamesno
- * Date: 3/13/17
- * Time: 5:29 PM
- */
+<?php 
 
 $action = filter_input(INPUT_POST, "action");
 
@@ -16,7 +8,7 @@ if ($action == 'logoff') {
     // unsets session
     session_unset();
     session_destroy();
-    header('location: ../../index.php');
+    header('location: index.php');
     exit();
 }
 

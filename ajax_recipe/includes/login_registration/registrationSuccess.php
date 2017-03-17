@@ -1,14 +1,5 @@
 <?php session_start(); ?>
-<?php include 'navBarlogOff.php'; ?>
-
-<?php
-/**
- * Created by PhpStorm.
- * User: James No
- * Date: 3/11/2017
- * Time: 5:52 PM
- */
-
+<?php include 'navBarlogOff.php';
 $action = filter_input(INPUT_POST, 'action');
 
 if (!isset($_SESSION['user'])) {

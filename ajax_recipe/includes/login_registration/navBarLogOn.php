@@ -1,13 +1,4 @@
-<?php //session_start(); ?>
 
-<?php
-/**
- * Created by PhpStorm.
- * User: jamesno
- * Date: 3/12/17
- * Time: 4:25 PM
- */
-?>
 <!DOCTYPE html>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
