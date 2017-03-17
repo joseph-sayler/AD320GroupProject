@@ -1,8 +1,15 @@
 <?php session_start(); ?>
+<?php include 'navBarLogOn.php'; ?>
 
 <?php
+/**
+ * Created by PhpStorm.
+ * User: jamesno
+ * Date: 2/28/17
+ * Time: 7:12 PM
+ */
 
-require 'includes/login_registration/connectDB.php';
+require 'connectDB.php';
 
 // Variables
 $userName = '';
@@ -100,27 +107,12 @@ if ($action == 'login') {
 }
 
 if ($action == 'register') {
-    header("location: includes/login_registration/register.php");
+    header("location: register.php");
     exit();
 }
 
 if ($loginSuccess) {
-    header("location: includes/login_registration/success.php");
+    header("location: success.php");
     exit();
 }
-include 'includes/login_registration/navBarLogOn.php';
-//Everything on this page will be initially diaplayed when site loads
-
-// display header
-include('views/header.php');
-
-// display search
-include('views/search_form.php');
-// display search-results
-include('views/search_results.php');
-
-// display footer
-include('views/footer.php');
-
-
 ?>
