@@ -9,7 +9,7 @@
  * Time: 7:12 PM
  */
 
-require 'connectDB.php';
+require 'includes/database/database.php';
 
 // Variables
 $userName = '';
