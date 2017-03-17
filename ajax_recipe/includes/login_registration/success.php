@@ -3,7 +3,7 @@
 
 <?php
 
-require 'connectDB.php';
+require '../database/database.php';
 
 $action = '';
 
@@ -18,7 +18,7 @@ if(!isset($_COOKIE["loginForm1"])) {
 }
 
 if ($action == 'back') {
-    header('location: index.php');
+    header('location: ../../index.php');
     exit();
 }
 ?>

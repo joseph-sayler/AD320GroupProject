@@ -4,7 +4,7 @@
 <?php
 
 // Includes connection to SQL Database
-require 'connectDB.php';
+require 'includes/database/database.php';
 
 // Set Variables
 $email = '';

@@ -6,7 +6,7 @@
  * Time: 7:02 PM
  */
 
-include "connectDb.php";
+require 'includes/database/database.php';
 
 try {
     $sql = "DROP TABLE IF EXISTS user_DB;

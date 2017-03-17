@@ -2,7 +2,7 @@
 
 <?php
 
-require 'includes/login_registration/connectDB.php';
+require 'includes/database/database.php';
 
 // Variables
 $userName = '';
@@ -34,15 +34,16 @@ if (isset($_COOKIE["loginForm1"]) || isset($_SESSION['user'])) {
                    FROM user_DB
                    WHERE userName= '$userName'
                   ";
+        $conn = Database::getDB();
         $result = $conn->prepare($dbstmt);
         $result->execute();
         $count = $result->rowCount();
 
         // Should have only 1 row that matches the conditions
-        if ($count == 1) {
+        /*if ($count == 1) {
             $loginSuccess = true;
             $_SESSION['user']= $userName;
-        }
+        }*/
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     } finally {
@@ -66,6 +67,7 @@ if ($action == 'login') {
                        FROM user_DB
                        WHERE userName= '$userName'
                        ";
+            $conn = Database::getDB();
             $result = $conn->prepare($dbstmt);
             $result->execute();
             $count = $result->rowCount();
