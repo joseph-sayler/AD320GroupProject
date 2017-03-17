@@ -1,15 +1,22 @@
 <div class="container">
 	
 	<!-- This is the original content displayed when the page loads. -->
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1>Search recipes by:<br></h1>
+    </div>
+  </div>
    <div class="row">
-     <div class="col-md-12">
-        <p>Welcome to our recipe search. There are over 700 recipes in our database. Please enter an ingredient in the box below to find recipes that contain this ingredient.</p>
-        <form id="search" action="includes/database/process_search.php" method="POST">
+   <!-- Start Ingredient Search -->
+   <div class="col-md-6">
+    <h2>Ingredient(s):</h2>
+    <p><br>Input ingredients available to you, and we'll return a list of recipes utilizing what's already in your pantry.</p>
+    <form id="search" action="includes/database/process_search.php" method="POST">
        
         <!-- Ingredient Input -->
         <div id="ingredientInput" class="form-group">
         	<label for="ingredients[]">Ingredient 1:</label>
-           <input type="text" name="ingredient1" class="form-control" value="onion">
+           <input type="text" name="ingredient1" class="form-control">
         </div>
         
        <!-- Add another ingredient to search -->
@@ -21,15 +28,64 @@
         <div class="form-group">
   	      <input id="submit" type="button" class="btn btn-default" value="Search" />
         </div>
-        </form>
+    </div>
+    <div class="col-md-6">
+    <h2>Title:</h2>
+    <p><br>Have something in mind? Search for recipes using a keyword (think 'lasagna')</p>
+        <!-- Title search input-->
+        <div id="titleInput" class="form-group">
+            <label for="recipe_title">Recipe Title:</label>
+            <input type="text" id="title" name="title" class="form-control" value="hamburger">
+        </div>
+
+        <!-- Title Submit -->
+        <div class="form-group">
+          <input id="title_submit" type="button" class="btn btn-default" value="Search" />
+        </div>
+
       </div>
-      <!-- End Ingredient Search -->
+
+    </form>
+        
+      </div>
+        <!-- End  Search -->
+
+      </div>
+       <!-- end row -->
    </div>
-    <!-- end row -->
- </div>
- <!-- end container -->
+    <!-- end container -->
+
+
  <!-- The JavaScript to process form -->
 <script>
+$("#title_submit").bind('click', function () {
+        recipes = [];
+        clearResult();
+         var t = document.getElementById("title").value;
+         $.post("includes/database/search_title.php", {
+          recipe_id: t
+         }, 
+         function(data){
+          var strLines = data.split("\n");
+          // console.log(strLines);
+          var counter = 0;
+          for (var i in strLines) {
+              if(strLines[i].length!= 0){
+              var obj = JSON.parse(strLines[i]);
+              recipes.push(obj);
+              var title = recipes[counter].title;
+              var recipe_id = recipes[counter].recipeID;
+              var img = recipes[counter].image;
+              var prep_time = recipes[counter].prepTime;
+              var cook_time = recipes[counter].cookTime;
+              var instructions = recipes[counter].instructions;
+              makeRecipeCard(title, recipe_id, img, prep_time, cook_time, instructions);
+              counter++;
+              }
+            }
+         });
+});
+
 
   // Tracks the number of inputs being added
   var counter = 2;
@@ -81,7 +137,7 @@
                 var str = obj['ingredient_quantities']+' '+obj['ingredient_name'];
                 ingredientsHTML += '<li>'+str+'</li>'
                 }
-              }
+            }
             ingredientsHTML += '</ul>';
             makeRecipeDisplay(recipe_title, image, prep_time, cook_time, ingredientsHTML, instructions);
          });
@@ -131,7 +187,7 @@ function makeRecipeDisplay(title, image, prep_time, cook_time, ingredients, inst
                 counter++;
               }
             }
-            // console.log(recipes.length);
+            console.log(recipes.length);
           }
         };
         xhr.send(form_data);
@@ -144,5 +200,4 @@ function makeRecipeDisplay(title, image, prep_time, cook_time, ingredients, inst
         searchRecipes();
       });
 
-   
 </script>
