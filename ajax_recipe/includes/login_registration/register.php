@@ -50,6 +50,7 @@ if ($action == 'register') {
                    FROM user_DB
                    WHERE userName='$userName'
                   ";
+            $conn = Database::getDB();
             $result = $conn->prepare($dbstmt);
             $result->execute();
             $count = $result->rowCount();
@@ -71,6 +72,7 @@ if ($action == 'register') {
                    FROM user_DB
                    WHERE email= '$email'
                   ";
+            $conn = Database::getDB();
             $result = $conn->prepare($dbstmt);
             $result->execute();
             $count = $result->rowCount();
@@ -121,7 +123,7 @@ if ($registerSuccess) {
 }
 
 if ($action == 'back') {
-    header('location: index.php');
+    header('location: ../../index.php');
     exit();
 }
 
