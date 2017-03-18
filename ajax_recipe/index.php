@@ -3,7 +3,6 @@
 <?php
 
 require 'includes/database/database.php';
-include 'views/header.php';
 
 // Variables
 $userName = '';
