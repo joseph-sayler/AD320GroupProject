@@ -1,5 +1,5 @@
 <div class="container">
-	
+
 	<!-- This is the original content displayed when the page loads. -->
   <div class="row">
     <div class="col-md-12 text-center">
@@ -12,13 +12,13 @@
     <h2>Ingredient(s):</h2>
     <p><br>Input ingredients available to you, and we'll return a list of recipes utilizing what's already in your pantry.</p>
     <form id="search" action="includes/database/process_search.php" method="POST">
-       
+
         <!-- Ingredient Input -->
         <div id="ingredientInput" class="form-group">
         	<label for="ingredients[]">Ingredient 1:</label>
            <input type="text" name="ingredient1" class="form-control">
         </div>
-        
+
        <!-- Add another ingredient to search -->
         <div class="form-group">
         	<input type="button" value="Add another ingredient +" onClick="addInput('ingredientInput');">
@@ -31,7 +31,7 @@
     </div>
     <div class="col-md-6">
     <h2>Title:</h2>
-    <p><br>Have something in mind? Search for recipes using a keyword (think 'lasagna')</p>
+    <p><br>Have something in mind? Search for recipes using a keyword (think 'lasagna')</p><br>
         <!-- Title search input-->
         <div id="titleInput" class="form-group">
             <label for="recipe_title">Recipe Title:</label>
@@ -46,7 +46,7 @@
       </div>
 
     </form>
-        
+
       </div>
         <!-- End  Search -->
 
@@ -64,7 +64,7 @@ $("#title_submit").bind('click', function () {
          var t = document.getElementById("title").value;
          $.post("includes/database/search_title.php", {
           recipe_id: t
-         }, 
+         },
          function(data){
           var strLines = data.split("\n");
           // console.log(strLines);
@@ -127,7 +127,7 @@ $("#title_submit").bind('click', function () {
          recipe_title = title;
          $.post("includes/database/get_ingredients.php", {
           recipe_id: id
-         }, 
+         },
          function(data){
           ingredientsHTML = '<ul>';
           var strLines = data.split("\n");
@@ -156,7 +156,7 @@ function makeRecipeDisplay(title, image, prep_time, cook_time, ingredients, inst
 
   function searchRecipes(){
     clearResult();
-        
+
         var form = document.getElementById("search");
 
         var form_data = new FormData(form);
