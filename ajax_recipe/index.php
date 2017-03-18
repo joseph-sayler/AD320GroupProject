@@ -54,10 +54,11 @@ if (isset($_COOKIE["loginForm1"]) || isset($_SESSION['user'])) {
 
 // User Submits data through login button
 if ($action == 'login') {
-    if (empty($userName)) {
-        $message = "Please enter a user name.";
-    } else if (empty($userPass)) {
-        $message = "Please enter a password.";
+  // if userName or userPass are empty, send alert
+    if (empty($userName) || empty($userPass)) {
+?>
+      <script>alert("Please enter a user name and/or password.");</script>
+<?php
     } else if (!empty($userName) && (!empty($userPass))) {
 
         // Check Credentials
@@ -66,7 +67,7 @@ if ($action == 'login') {
             $dbstmt = "
                        SELECT password
                        FROM user_DB
-                       WHERE userName= '$userName'
+                       WHERE userName='$userName'
                        ";
             $conn = Database::getDB();
             $result = $conn->prepare($dbstmt);
@@ -90,9 +91,17 @@ if ($action == 'login') {
                         $cookieValue1 = $userName;
                         setcookie("loginForm1", $cookieValue1, time() + (300), "/");
                     }
+                // if userPass does not hash, send alert
+                } else {
+?>
+              <script>alert("Password is incorrect. Please try again.");</script>
+<?php
                 }
             } else {
-                $message = "Incorrect username or password. ";
+// if nothing else works, send alert (this assumes that if no conditions are met, the username is wrong)
+?>
+              <script>alert("Username is incorrect. Please try again.");</script>
+<?php
             }
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
