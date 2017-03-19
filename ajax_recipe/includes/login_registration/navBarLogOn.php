@@ -10,10 +10,11 @@
 <body>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
-        <div class="navbar-header"><!-- change this href to a valid location when uploading to server -->
+        <div class="navbar-header"><!-- all files must reside under ../ajax_recipe/ or this will not work -->
+            <a class="navbar-brand" href="<?php echo substr($_SERVER['REQUEST_URI'],0,strpos($_SERVER['REQUEST_URI'],"recipe/"))."recipe/index.php"?>">Gotta Eat</a>
         </div>
-        <ul class="nav navbar-nav"><!-- change this href to a valid location when uploading to server -->
-            <li class="active"><a href="/projects/GitHub/AD320GroupProject/ajax_recipe/index.php">Home</a></li>
+        <ul class="nav navbar-nav"><!-- all files must reside under ../ajax_recipe/ or this will not work -->
+            <li class="active"><a href="<?php echo substr($_SERVER['REQUEST_URI'],0,strpos($_SERVER['REQUEST_URI'],"recipe/"))."recipe/index.php"?>">Home</a></li>
         </ul>
         <form class="navbar-form navbar-right" method="POST">
             <input type="checkbox" name="remember">
