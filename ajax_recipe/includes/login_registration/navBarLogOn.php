@@ -11,7 +11,6 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header"><!-- change this href to a valid location when uploading to server -->
-            <a class="navbar-brand" href="<?php echo substr($_SERVER['REQUEST_URI'], 0, strpos($_SERVER['REQUEST_URI'],"recipe/")) . "recipe/index.php"?>">Gotta Eat</a>
         </div>
         <ul class="nav navbar-nav"><!-- change this href to a valid location when uploading to server -->
             <li class="active"><a href="/projects/GitHub/AD320GroupProject/ajax_recipe/index.php">Home</a></li>
