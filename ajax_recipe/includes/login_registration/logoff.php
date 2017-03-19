@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $action = filter_input(INPUT_POST, "action");
 
@@ -8,7 +8,7 @@ if ($action == 'logoff') {
     // unsets session
     session_unset();
     session_destroy();
-    header('location: index.php');
+    header('location: ../../index.php');
     exit();
 }
 
