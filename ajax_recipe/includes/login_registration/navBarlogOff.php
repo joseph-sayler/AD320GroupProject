@@ -30,11 +30,11 @@ $userName = $_SESSION['user'];
 <body>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="<?php realpath("/index.php") ?>">Gotta Eat</a>
+        <div class="navbar-header"><!-- all files must reside under ../ajax_recipe/ or this will not work -->
+            <a class="navbar-brand" href="<?php echo substr($_SERVER['REQUEST_URI'],0,strpos($_SERVER['REQUEST_URI'],"recipe/"))."recipe/index.php"?>">Gotta Eat</a>
         </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="<?php realpath("/index.php") ?>">Home</a></li>
+        <ul class="nav navbar-nav"><!-- all files must reside under ../ajax_recipe/ or this will not work -->
+            <li class="active"><a href="<?php echo substr($_SERVER['REQUEST_URI'],0,strpos($_SERVER['REQUEST_URI'],"recipe/"))."recipe/index.php"?>">Home</a></li>
         </ul>
         <form class="navbar-form navbar-right" method="POST">
             <?php echo "Welcome " . $userName . " " ?>

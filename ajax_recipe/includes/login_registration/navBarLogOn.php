@@ -10,11 +10,10 @@
 <body>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="index.php">Gotta Eat</a>
+        <div class="navbar-header"><!-- change this href to a valid location when uploading to server -->
         </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Home</a></li>
+        <ul class="nav navbar-nav"><!-- change this href to a valid location when uploading to server -->
+            <li class="active"><a href="/projects/GitHub/AD320GroupProject/ajax_recipe/index.php">Home</a></li>
         </ul>
         <form class="navbar-form navbar-right" method="POST">
             <input type="checkbox" name="remember">
