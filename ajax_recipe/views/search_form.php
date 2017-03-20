@@ -11,8 +11,23 @@
    <div class="col-md-6">
     <h2>Ingredient(s):</h2>
     <p><br>Input ingredients available to you, and we'll return a list of recipes utilizing what's already in your pantry.</p>
+    </div>
+    <div class="col-md-6">
+    <h2>Title:</h2>
+    <p><br>Have something in mind? Search for recipes using a keyword (think 'lasagna')</p>
+    </div>
+    </div>
+    <div class="row">
     <form id="search" action="includes/database/process_search.php" method="POST">
+<<<<<<< Updated upstream
 
+=======
+<<<<<<< HEAD
+       <div class="col-md-6">
+=======
+
+>>>>>>> origin/master
+>>>>>>> Stashed changes
         <!-- Ingredient Input -->
         <div id="ingredientInput" class="form-group">
         	<label for="ingredients[]">Ingredient 1:</label>
@@ -28,10 +43,19 @@
         <div class="form-group">
   	      <input id="submit" type="button" class="btn btn-default" value="Search" />
         </div>
-    </div>
+        </div>
+    
     <div class="col-md-6">
+<<<<<<< HEAD
+   <!--  <h2>Title:</h2>
+    <p><br>Have something in mind? Search for recipes using a keyword (think 'lasagna')</p> -->
+=======
     <h2>Title:</h2>
     <p><br>Have something in mind? Search for recipes using a keyword (think 'lasagna')</p><br>
+<<<<<<< Updated upstream
+=======
+>>>>>>> origin/master
+>>>>>>> Stashed changes
         <!-- Title search input-->
         <div id="titleInput" class="form-group">
             <label for="recipe_title">Recipe Title:</label>
@@ -46,7 +70,16 @@
       </div>
 
     </form>
+<<<<<<< Updated upstream
 
+=======
+<<<<<<< HEAD
+    </div>
+        
+=======
+
+>>>>>>> origin/master
+>>>>>>> Stashed changes
       </div>
         <!-- End  Search -->
 
@@ -199,5 +232,6 @@ function makeRecipeDisplay(title, image, prep_time, cook_time, ingredients, inst
         event.preventDefault();
         searchRecipes();
       });
+
 
 </script>

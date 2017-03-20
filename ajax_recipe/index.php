@@ -1,6 +1,7 @@
-<?php session_start(); ?>
-
 <?php
+<<<<<<< HEAD
+//Everything on this page will be initially diaplayed when site loads
+=======
 
 require 'includes/database/database.php';
 
@@ -127,15 +128,16 @@ if(!isset($_SESSION['user'])) {
 } else {
   include 'includes/login_registration/navBarlogOff.php';
 }
+>>>>>>> origin/master
 
 // display header
 include('views/header.php');
-
+//modal
+include('views/welcome_modal.php');
 // display search
 include('views/search_form.php');
 // display search-results
 include('views/search_results.php');
-
 // display footer
 include('views/footer.php');
 ?>
