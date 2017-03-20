@@ -1,5 +1,5 @@
 <?php
-<<<<<<< HEAD
+
 //Everything on this page will be initially diaplayed when site loads
 =======
 
