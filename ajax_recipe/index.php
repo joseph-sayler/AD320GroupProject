@@ -1,7 +1,7 @@
 <?php
 
 //Everything on this page will be initially diaplayed when site loads
-=======
+
 
 require 'includes/database/database.php';
 
