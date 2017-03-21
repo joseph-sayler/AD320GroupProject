@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 class Database {
-	private static $dsn = "mysql:host=127.0.0.1;dbname=recipe2";
+	private static $dsn = "mysql:host=127.0.0.1;dbname=recipe_database";
 	private static $username = "root";
 	private static $password = "root";
 	private static $db;
