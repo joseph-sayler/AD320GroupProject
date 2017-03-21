@@ -128,7 +128,6 @@ if(!isset($_SESSION['user'])) {
 } else {
   include 'includes/login_registration/navBarlogOff.php';
 }
->>>>>>> origin/master
 
 // display header
 include('views/header.php');
