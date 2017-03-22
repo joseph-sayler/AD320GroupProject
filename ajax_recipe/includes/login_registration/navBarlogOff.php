@@ -1,4 +1,5 @@
-<?php include 'logoff.php';
+<?php 
+include 'logoff.php';
 
 $userName = $_SESSION['user'];
 

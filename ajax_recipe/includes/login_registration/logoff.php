@@ -8,7 +8,7 @@ if ($action == 'logoff') {
     // unsets session
     session_unset();
     session_destroy();
-    header($_SERVER['REQUEST_URI'].'ajax_recipe/index.php');
+    header('location: '.substr($_SERVER['REQUEST_URI'],0,strpos($_SERVER['REQUEST_URI'],"/"))."index.php");
     exit();
 }
 
