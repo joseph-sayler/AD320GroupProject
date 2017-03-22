@@ -6,9 +6,9 @@
  * Time: 4:39 PM
  */
 
-$dsn = 'mysql:host=localhost;dbname=icoolsho_jno';
-$username = "icoolsho_jno";
-$password = "$!985-81-2029";
+$dsn = 'mysql:host=localhost;dbname=recipe_database';
+$username = "root";
+$password = "root";
 
 try {
 // Create connection

@@ -1,8 +1,7 @@
+<?php session_start(); ?>
 <?php
 
 //Everything on this page will be initially diaplayed when site loads
-
-
 require 'includes/database/database.php';
 
 // Variables
@@ -131,8 +130,6 @@ if(!isset($_SESSION['user'])) {
 
 // display header
 include('views/header.php');
-//modal
-include('views/welcome_modal.php');
 // display search
 include('views/search_form.php');
 // display search-results

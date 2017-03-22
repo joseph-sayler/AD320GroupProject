@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <?php include 'navBarlogOff.php';
 $action = filter_input(INPUT_POST, 'action');
 

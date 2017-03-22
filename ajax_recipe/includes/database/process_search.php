@@ -19,10 +19,10 @@ reset($_POST);
 
 if(is_ajax_request()){
 
-	$result = RecipesDB::getRecipesByIngredients($_POST['ingredient1']);
-	
-	foreach ($result as $key) {
-	   echo $key."\n";
+  $result = RecipesDB::getRecipesMultiIngredientSearch($input_array);
+  
+  foreach ($result as $key) {
+     echo $key."\n";
   }
     
 }

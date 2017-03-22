@@ -6,7 +6,7 @@ class RecipesDB {
 	public static function getRecipesByIngredients($ingredients){
 		$db = Database::getDB();
 		$i = "%$ingredients%";
-		$query = "SELECT DISTINCT a.recipeID, a.image, a.title, a.servings, a.prepTime, a.cookTime, a.instructions FROM recipe_data a WHERE a.ingredients LIKE :i";
+		$query = "SELECT DISTINCT a.recipeID, a.image, a.title, a.servings, a.prepTime, a.cookTime, a.ingredients, a.instructions FROM recipe_data a WHERE a.ingredients LIKE :i";
             $statement = $db->prepare($query);
             $statement->bindValue(':i', $i);
             $statement->execute();
@@ -26,7 +26,7 @@ class RecipesDB {
 	public static function getRecipesByTitle($title){
 		$db = Database::getDB();
 		$i = "%$title%";
-		$query = "SELECT a.recipeID, a.image, a.title, a.servings, a.prepTime, a.cookTime, a.instructions FROM recipe_data a WHERE a.title LIKE :i";
+		$query = "SELECT a.recipeID, a.image, a.title, a.servings, a.prepTime, a.cookTime, a.ingredients, a.instructions FROM recipe_data a WHERE a.title LIKE :i";
              $statement = $db->prepare($query);
             $statement->bindValue(':i', $i);
             $statement->execute();
@@ -65,7 +65,7 @@ class RecipesDB {
 	public static function getRecipesMultiIngredientSearch($ingredients_array){
 		$db = Database::getDB();
 		$ingreds = $ingredients_array;
-		$query1 = "SELECT DISTINCT a.recipeID, a.image, a.title, a.servings, a.prepTime, a.cookTime, a.instructions FROM recipe_data a WHERE a.ingredients LIKE ";
+		$query1 = "SELECT DISTINCT a.recipeID, a.image, a.title, a.servings, a.prepTime, a.cookTime, a.ingredients, a.instructions FROM recipe_data a WHERE a.ingredients LIKE ";
 		$count = 1;
 		foreach ($ingreds as $value) {
 			if($count == sizeof($ingreds)){
