@@ -3,7 +3,7 @@
 
 <?php
 
-require 'database/database.php';
+require '../database/database.php';
 
 $action = '';
 
@@ -12,7 +12,7 @@ $action = filter_input(INPUT_POST, 'action');
 // Checks if cookies are on
 if(!isset($_COOKIE["loginForm1"])) {
     if (!isset($_SESSION['user'])) {
-        header('location: index.php');
+        header('location: ../index.php');
         exit();
     }
 }

@@ -6,7 +6,7 @@
  * Time: 7:02 PM
  */
 
-require 'database/database.php';
+require '../database/database.php';
 
 try {
     $sql = "DROP TABLE IF EXISTS user_DB;

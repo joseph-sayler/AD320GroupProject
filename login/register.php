@@ -1,7 +1,7 @@
 <?php
 
 // Includes connection to SQL Database
-require 'database/database.php';
+require "../database/database.php";
 include 'navBarLogOn.php';
 // Set Variables
 $email = '';
