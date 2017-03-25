@@ -1,7 +1,7 @@
 <?php
 
 // Includes connection to SQL Database
-require '../database/database.php';
+require 'database/database.php';
 include 'navBarLogOn.php';
 // Set Variables
 $email = '';
@@ -120,7 +120,7 @@ if ($registerSuccess) {
 }
 
 if ($action == 'back') {
-    header('location: ../../index.php');
+    header('location: ../index.php');
     exit();
 }
 

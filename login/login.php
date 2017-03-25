@@ -9,7 +9,7 @@
  * Time: 7:12 PM
  */
 
-require 'includes/database/database.php';
+require 'database/database.php';
 
 // Variables
 $userName = '';

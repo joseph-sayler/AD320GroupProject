@@ -2,7 +2,7 @@
 <?php
 
 //Everything on this page will be initially diaplayed when site loads
-require 'includes/database/database.php';
+require 'database/database.php';
 
 // Variables
 $userName = '';
@@ -111,7 +111,7 @@ if ($action == 'login') {
 }
 
 if ($action == 'register') {
-    header("location: includes/login_registration/register.php");
+    header("location: login/register.php");
     exit();
 }
 
@@ -119,13 +119,13 @@ if ($action == 'register') {
 
 // checks if session loaded and displays the appropriate navBar
 if ($loginSuccess) {
-    header("location: includes/login_registration/success.php");
+    header("location: login/success.php");
     exit();
 }
 if(!isset($_SESSION['user'])) {
-  include 'includes/login_registration/navBarLogOn.php';
+  include 'login/navBarLogOn.php';
 } else {
-  include 'includes/login_registration/navBarlogOff.php';
+  include 'login/navBarlogOff.php';
 }
 
 // display header

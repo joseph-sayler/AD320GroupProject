@@ -18,7 +18,7 @@
     </div>
     </div>
     <div class="row">
-    <form id="search" action="includes/database/process_search.php" method="POST">
+    <form id="search" action="database/process_search.php" method="POST">
        <div class="col-md-6">
 
         <!-- Ingredient Input -->
@@ -37,7 +37,7 @@
   	      <input id="submit" type="button" class="btn btn-default" value="Search" />
         </div>
         </div>
-    
+
     <div class="col-md-6">
         <!-- Title search input-->
         <div id="titleInput" class="form-group">
@@ -69,7 +69,7 @@ $("#title_submit").bind('click', function () {
         recipes = [];
         clearResult();
          var t = document.getElementById("title").value;
-         $.post("includes/database/search_title.php", {
+         $.post("database/search_title.php", {
           recipe_id: t
          },
          function(data){
@@ -159,7 +159,7 @@ function makeRecipeDisplay(title, image, prep_time, cook_time, ingredients, inst
         }
 
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'includes/database/process_search.php', true);
+        xhr.open('POST', 'database/process_search.php', true);
         xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         xhr.onreadystatechange = function () {
           if(xhr.readyState == 4 && xhr.status == 200) {
