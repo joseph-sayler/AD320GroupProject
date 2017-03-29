@@ -5,19 +5,19 @@
 	</head>
 	<body>
 		<nav>
-			<form method="GET" action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+			<form method="POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>">
 				There are over 700 recipes in the database. Please input a number to pull up a recipe.
 				<br><br>
 				<label>Recipe ID:</label>
 				<input type="text" name="ID">
 				<br><br>
 				<label>&nbsp;</label>
-				<input type="submit" value="Submit" class="button1" />&nbsp;&nbsp;<input type="button" class="button1" onclick="location.href='/projects/recipe_site';" value="Clear" />
+				<input type="submit" value="Submit" class="button1" />&nbsp;&nbsp;<input type="button" class="button1" onclick="location.href='index.php';" value="Clear" />
 				<br><br>
 			</form>
 		</nav>
 		<main>
-		<?php recipe_output(search_by_title(filter_input(INPUT_GET,'ID'))); ?>
+		<?php recipe_output(search_by_title(filter_input(INPUT_POST,'ID'))); ?>
 		</main>
 	</body>
 </html>
