@@ -1,7 +1,6 @@
 <?php
 
 // performs search by recipe ID
-	function search_by_title($user_input) {
 		include "recipe_connection.php";
 		$col1 = 'image';
 		$col2 = 'title';
@@ -13,10 +12,11 @@
 		$col8 = 'instructions';
 		$col9 = 'recipeID';
 		$data = array();
+		$user_input = (isset($_GET['ID'])) ? $_GET['ID'] : "";
 		try {
-			$stmt = $conn->prepare("SELECT $col1, $col2, $col3, $col4, $col5, $col6, $col7, $col8, $col9 FROM recipe_data WHERE $col9='$user_input';"); 
+			$stmt = $conn->prepare("SELECT $col1, $col2, $col3, $col4, $col5, $col6, $col7, $col8, $col9 FROM recipe_data WHERE $col9='$user_input';");
 			$stmt->execute();
-			$result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+			$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 			foreach ($stmt->fetchAll() as $k=>$v) {
 				foreach ($v as $key => $value) {
 					$data[$key] = $value;
@@ -27,11 +27,13 @@
 			echo "Error: " . $e->getMessage();
 		}
 		$conn = null;
-		
-		return $data;
-	}
+		echo json_encode($data);
 
+
+
+//============ deprecated functions ============\\
 // outputs the recipe data after search performed
+/*
 	function recipe_output($data) {
 		if (!empty($data)) {
 			echo "<div>";
@@ -67,7 +69,7 @@
 		$hashpass = password_hash($password, PASSWORD_DEFAULT);
 		$sql = "INSERT INTO user_db (username, password, email) VALUES ('$username', '$hashpass', '$email');";
 		try {
-			$stmt = $conn->prepare($sql); 
+			$stmt = $conn->prepare($sql);
 			$stmt->execute();
 			return "Registration successful";
 		} catch(PDOException $e) {
@@ -132,4 +134,5 @@
 			echo "not available";
 		}
 	}
+*/
 ?>

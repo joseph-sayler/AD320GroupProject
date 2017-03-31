@@ -4,7 +4,6 @@
 		<title>Recipe Search</title>
 	  <meta charset="utf-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- jquery, 3.2.1 minified -->
 		<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 		<!-- jquery ui, 1.12.1 minified -->
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
@@ -14,12 +13,43 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<!-- jquery, 3.2.1 minified -->
 	</head>
-		<body>
-			<?php
-				include "recipe_connection.php";
-				include "recipe_function_library.php";
-				include "recipe.html";
-			?>
+	<body>
+		<form action="recipe_function_library.php" method="GET">
+			<label>Enter a number 1 to 705:</label>
+			<input type="text" name="ID" />
+			<label>&nbsp;</label>
+			<input type="submit" name="submit" value="submit" />
+			<br><br>
+		</form>
+		<div class="recipe">
+		</div>
 	</body>
+	<script>
+	// pull this out into its own file later
+		$(document).ready(function() {
+	    $('form').submit(function(event) {
+	        var formData = {
+						'ID': $('input[name=ID]').val()
+					};
+	        $.ajax({
+						type: 'GET', url: 'recipe_function_library.php', data: formData, dataType: 'json', encode: true
+					})
+					.done(function(json){
+						$('.recipe').append(JSON.stringify(json));
+					})
+					.fail(function(xhr, status, errorThrown){
+						$('.recipe').append("Sorry, there was a problem!<br><br>");
+						console.log("Error: " + errorThrown);
+						console.log("Status: " + status);
+						console.dir(xhr);
+					})
+					.always(function(xhr, status){
+						console.log( "The request is complete!" );
+				});
+	        event.preventDefault();
+    	});
+	});
+	</script>
 </html>
