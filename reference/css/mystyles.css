@@ -1,8 +1,0 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300|Space+Mono:400i');
-
-h1, h2, label, h4{
-	font-family: 'Space Mono', monospace;
-}
-p {
-	font-family: 'Roboto', sans-serif;
-}
